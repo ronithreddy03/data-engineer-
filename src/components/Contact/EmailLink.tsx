@@ -11,21 +11,20 @@ const validateText = (text: string): boolean => {
 };
 
 const messages = [
-  'ronith0306',
-  'hello',
-  'hi',
-  'contact',
-  'work',
-  'opportunity',
-  'project',
-  'collaboration',
-  'hello-ronith',
-  'hi-there',
-  'get-in-touch',
-  'connect',
-  'message',
-  'reach-out',
-  'hello-ronith',
+  'ronith0306@gmail.com',
+  'hello@gmail.com',
+  'contact@gmail.com',
+  'work@gmail.com',
+  'opportunity@gmail.com',
+  'project@gmail.com',
+  'collaboration@gmail.com',
+  'hello-ronith@gmail.com',
+  'hi-there@gmail.com',
+  'get-in-touch@gmail.com',
+  'connect@gmail.com',
+  'message@gmail.com',
+  'reach-out@gmail.com',
+  'ronith0306@gmail.com',
 ];
 
 const useInterval = (callback: () => void, delay: number | null) => {
@@ -90,9 +89,8 @@ const EmailLink: React.FC<EmailLinkProps> = ({ loopMessage = false }) => {
       onMouseEnter={() => setIsActive(false)}
       onMouseLeave={() => idx < messages.length && setIsActive(true)}
     >
-      <a href={validateText(message) ? `mailto:${message}@gmail.com` : ''}>
+      <a href={validateText(message) ? `mailto:${message}` : ''}>
         <span>{message}</span>
-        <span>@gmail.com</span>
       </a>
     </div>
   );
