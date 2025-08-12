@@ -18,7 +18,8 @@ const work: Position[] = [
     url: 'https://investor.vanguard.com',
     startDate: '2024-04-01',
     endDate: '2025-02-28',
-    summary: 'Built FastAPI + GraphQL fraud services that reduced incidents by 30%; migrated ML datasets to Snowflake via AWS Glue reducing prep time by 45%.',
+    summary:
+      'Built FastAPI + GraphQL fraud services that reduced incidents by 30%; migrated ML datasets to Snowflake via AWS Glue reducing prep time by 45%.',
     highlights: [
       'Built FastAPI + GraphQL fraud services (-30% incidents)',
       'Migrated ML datasets to Snowflake via AWS Glue (-45% prep time)',
@@ -34,7 +35,8 @@ const work: Position[] = [
     url: 'https://www.paypal.com',
     startDate: '2022-10-01',
     endDate: '2024-04-30',
-    summary: 'Flask microservices with SQLAlchemy achieving 99.9% uptime; Azure DevOps CI/CD with Ansible reducing deployment issues by 40%.',
+    summary:
+      'Flask microservices with SQLAlchemy achieving 99.9% uptime; Azure DevOps CI/CD with Ansible reducing deployment issues by 40%.',
     highlights: [
       'Flask microservices with SQLAlchemy (99.9% uptime)',
       'Azure DevOps CI/CD with Ansible (-40% deployment issues)',
@@ -50,7 +52,8 @@ const work: Position[] = [
     url: 'https://www.bayer.com',
     startDate: '2020-10-01',
     endDate: '2022-12-31',
-    summary: 'React + Node front end with Django/Flask APIs; fraud-detection microservices on Kubernetes + SageMaker achieving sub-second scoring.',
+    summary:
+      'React + Node front end with Django/Flask APIs; fraud-detection microservices on Kubernetes + SageMaker achieving sub-second scoring.',
     highlights: [
       'React + Node front end with Django/Flask APIs',
       'Fraud-detection microservices on Kubernetes + SageMaker (sub-second scoring)',

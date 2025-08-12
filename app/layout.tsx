@@ -23,13 +23,13 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ronith Reddy Prodduturi",
-    template: "%s | Ronith Reddy Prodduturi",
+    default: 'Ronith Reddy Prodduturi',
+    template: '%s | Ronith Reddy Prodduturi',
   },
   description:
     "Ronith Reddy Prodduturi's personal website. Data Scientist • ML Engineer • Data Engineer with expertise in building scalable data pipelines and AI-powered applications.",
   keywords: [
-    "Ronith Reddy Prodduturi",
+    'Ronith Reddy Prodduturi',
     'data engineer',
     'machine learning engineer',
     'full-stack developer',
@@ -39,22 +39,23 @@ export const metadata: Metadata = {
     'PySpark',
     'Apache Spark',
   ],
-  authors: [{ name: "Ronith Reddy Prodduturi" }],
-  creator: "Ronith Reddy Prodduturi",
+  authors: [{ name: 'Ronith Reddy Prodduturi' }],
+  creator: 'Ronith Reddy Prodduturi',
   metadataBase: new URL('https://ronithreddy.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://ronithreddy.com',
-    siteName: "Ronith Reddy Prodduturi",
-    title: "Ronith Reddy Prodduturi",
-    description: 'Data Engineer and Machine Learning Engineer with expertise in building scalable data pipelines and AI-powered applications.',
+    siteName: 'Ronith Reddy Prodduturi',
+    title: 'Ronith Reddy Prodduturi',
+    description:
+      'Data Engineer and Machine Learning Engineer with expertise in building scalable data pipelines and AI-powered applications.',
     images: [
       {
         url: '/images/me.jpg',
         width: 1200,
         height: 630,
-        alt: "Ronith Reddy Prodduturi",
+        alt: 'Ronith Reddy Prodduturi',
       },
     ],
   },

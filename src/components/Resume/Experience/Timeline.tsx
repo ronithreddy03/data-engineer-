@@ -17,7 +17,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
     <div className="timeline-container">
       {/* Center line */}
       <div className="timeline-line" />
-      
+
       {items.map((item, index) => (
         <div key={index} className="timeline-item">
           {/* Timeline card */}
@@ -27,9 +27,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
             <div className="period">{item.period}</div>
             <ul>
               {item.achievements.map((achievement, achievementIndex) => (
-                <li key={achievementIndex}>
-                  {achievement}
-                </li>
+                <li key={achievementIndex}>{achievement}</li>
               ))}
             </ul>
           </div>

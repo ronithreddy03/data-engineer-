@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Image from 'next/image';
 import dayjs from 'dayjs';
 
 import type { Project } from '@/data/projects';
+
 import ProjectImage from './ProjectImage';
 
 interface CellProps {

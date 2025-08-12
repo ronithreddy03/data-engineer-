@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 
 import PageWrapper from './components/PageWrapper';
@@ -9,11 +10,7 @@ export default function HomePage() {
   const [currentRole, setCurrentRole] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
-  const roles = [
-    "Data Engineer",
-    "Full Stack Python Developer", 
-    "Data Scientist"
-  ];
+  const roles = ['Data Engineer', 'Full Stack Python Developer', 'Data Scientist'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,7 +30,7 @@ export default function HomePage() {
         <header>
           <div className="title">
             <h2>Ronith Reddy Prodduturi</h2>
-            <div 
+            <div
               className="role-display"
               style={{
                 fontSize: '1.2em',
@@ -44,7 +41,7 @@ export default function HomePage() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 transition: 'opacity 0.5s ease-in-out',
-                opacity: isVisible ? 1 : 0
+                opacity: isVisible ? 1 : 0,
               }}
             >
               {roles[currentRole]}
@@ -52,70 +49,83 @@ export default function HomePage() {
             <p>Dallas, TX (open to TX/CA & remote)</p>
           </div>
         </header>
-        
+
         <div style={{ marginTop: '40px', textAlign: 'center' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                                    <p style={{ fontSize: '1.1em', lineHeight: '1.6', marginBottom: '30px', color: '#555' }}>
-                          I'm Ronith, a passionate technologist who bridges the gap between raw data and business value. 
-                          From processing 15TB+ of daily data to deploying ML models that improve fraud detection by 30%, 
-                          I thrive on solving complex challenges with elegant, production-ready solutions.
-                        </p>
-                        
-                        <div style={{ 
-                          background: '#f8f9fa', 
-                          padding: '20px', 
-                          borderRadius: '8px', 
-                          marginBottom: '30px',
-                          border: '1px solid #e9ecef'
-                        }}>
-                          <p style={{ fontSize: '1em', lineHeight: '1.6', color: '#333', fontStyle: 'italic' }}>
-                            Hi, I'm Ronith — part data whisperer, part problem solver, and part "how-does-this-even-work?" enthusiast. 
-                            When I'm not wrangling datasets, you'll probably find me chasing sunsets by the lake or losing myself in the energy of an EDM concert. 🎶
-                          </p>
-                        </div>
-            
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link 
-                href="/projects" 
-                style={{ 
-                  color: '#12D640', 
-                  textDecoration: 'none', 
+            <p
+              style={{ fontSize: '1.1em', lineHeight: '1.6', marginBottom: '30px', color: '#555' }}
+            >
+              I&apos;m Ronith, a passionate technologist who bridges the gap between raw data and
+              business value. From processing 15TB+ of daily data to deploying ML models that
+              improve fraud detection by 30%, I thrive on solving complex challenges with elegant,
+              production-ready solutions.
+            </p>
+
+            <div
+              style={{
+                background: '#f8f9fa',
+                padding: '20px',
+                borderRadius: '8px',
+                marginBottom: '30px',
+                border: '1px solid #e9ecef',
+              }}
+            >
+              <p style={{ fontSize: '1em', lineHeight: '1.6', color: '#333', fontStyle: 'italic' }}>
+                Hi, I&apos;m Ronith — part data whisperer, part problem solver, and part
+                &quot;how-does-this-even-work?&quot; enthusiast. When I&apos;m not wrangling
+                datasets, you&apos;ll probably find me chasing sunsets by the lake or losing myself
+                in the energy of an EDM concert. 🎶
+              </p>
+            </div>
+
+            <div
+              style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}
+            >
+              <Link
+                href="/projects"
+                style={{
+                  color: '#12D640',
+                  textDecoration: 'none',
                   fontWeight: 'bold',
                   padding: '12px 24px',
                   border: '2px solid #12D640',
                   borderRadius: '6px',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = '#12D640';
-                  e.target.style.color = 'white';
+                  const target = e.target as HTMLElement;
+                  target.style.background = '#12D640';
+                  target.style.color = 'white';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'transparent';
-                  e.target.style.color = '#12D640';
+                  const target = e.target as HTMLElement;
+                  target.style.background = 'transparent';
+                  target.style.color = '#12D640';
                 }}
               >
                 View Projects →
               </Link>
-              
-              <Link 
-                href="/about" 
-                style={{ 
-                  color: '#333', 
-                  textDecoration: 'none', 
+
+              <Link
+                href="/about"
+                style={{
+                  color: '#333',
+                  textDecoration: 'none',
                   fontWeight: 'bold',
                   padding: '12px 24px',
                   border: '2px solid #333',
                   borderRadius: '6px',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = '#333';
-                  e.target.style.color = 'white';
+                  const target = e.target as HTMLElement;
+                  target.style.background = '#333';
+                  target.style.color = 'white';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'transparent';
-                  e.target.style.color = '#333';
+                  const target = e.target as HTMLElement;
+                  target.style.background = 'transparent';
+                  target.style.color = '#333';
                 }}
               >
                 Learn More →

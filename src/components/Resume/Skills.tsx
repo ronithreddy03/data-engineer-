@@ -61,13 +61,17 @@ const Skills: React.FC<SkillsProps> = ({ skills, categories }) => {
     // Show only top 5 skills initially, or all if showAllSkills is true
     const skillsToShow = showAllSkills ? filteredSkills : filteredSkills.slice(0, 5);
 
-    return skillsToShow.map((skill) => <SkillBar categories={categories} data={skill} key={skill.title} />);
+    return skillsToShow.map((skill) => (
+      <SkillBar categories={categories} data={skill} key={skill.title} />
+    ));
   };
 
   const getShowMoreButton = () => {
     const actCat = Object.keys(buttons).reduce((cat, key) => (buttons[key] ? key : cat), 'All');
-    const filteredSkills = skills.filter((skill) => actCat === 'All' || skill.category.includes(actCat));
-    
+    const filteredSkills = skills.filter(
+      (skill) => actCat === 'All' || skill.category.includes(actCat),
+    );
+
     if (filteredSkills.length <= 5) return null;
 
     return (

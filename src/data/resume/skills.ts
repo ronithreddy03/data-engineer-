@@ -21,7 +21,7 @@ const skills: Skill[] = [
     competency: 5,
     category: ['Languages', 'Databases', 'Data Engineering'],
   },
-  
+
   // Data Engineering & Big Data
   {
     title: 'PySpark',
@@ -43,7 +43,7 @@ const skills: Skill[] = [
     competency: 4,
     category: ['Data Engineering', 'Big Data'],
   },
-  
+
   // Databases & Data Warehouses
   {
     title: 'Snowflake',
@@ -65,7 +65,7 @@ const skills: Skill[] = [
     competency: 4,
     category: ['Databases', 'NoSQL', 'AWS'],
   },
-  
+
   // Cloud & AWS
   {
     title: 'AWS',
@@ -87,7 +87,7 @@ const skills: Skill[] = [
     competency: 4,
     category: ['AWS', 'Storage'],
   },
-  
+
   // Web Development
   {
     title: 'FastAPI',
@@ -109,7 +109,7 @@ const skills: Skill[] = [
     competency: 4,
     category: ['Web Development', 'Javascript'],
   },
-  
+
   // DevOps & Tools
   {
     title: 'Docker',
@@ -126,7 +126,7 @@ const skills: Skill[] = [
     competency: 5,
     category: ['Tools'],
   },
-  
+
   // Data Visualization
   {
     title: 'Power BI',
@@ -138,7 +138,7 @@ const skills: Skill[] = [
     competency: 4,
     category: ['Data Visualization'],
   },
-  
+
   // Machine Learning & MLOps
   {
     title: 'MLflow',
@@ -239,4 +239,3 @@ const categories: Category[] = [
 
 export { categories };
 export default skills;
-
