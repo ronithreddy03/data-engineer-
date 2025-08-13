@@ -108,7 +108,7 @@ export default function HomePage() {
         }
 
         .hero-container {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
           background-size: 400% 400%;
           animation: gradientShift 8s ease infinite;
           border-radius: 20px;
@@ -410,30 +410,124 @@ export default function HomePage() {
             Contact Me →
           </Link>
 
-          <Link
-            href="/resume"
+          <div
             style={{
-              color: '#333',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              padding: '12px 24px',
-              border: '2px solid #333',
-              borderRadius: '6px',
-              transition: 'all 0.3s ease',
+              position: 'relative',
+              display: 'inline-block',
             }}
             onMouseEnter={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = '#333';
-              target.style.color = 'white';
+              const target = e.currentTarget;
+              const dropdown = target.querySelector('.resume-dropdown') as HTMLElement;
+              if (dropdown) {
+                dropdown.style.display = 'block';
+                dropdown.style.opacity = '1';
+                dropdown.style.transform = 'translateY(0)';
+              }
             }}
             onMouseLeave={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = 'transparent';
-              target.style.color = '#333';
+              const target = e.currentTarget;
+              const dropdown = target.querySelector('.resume-dropdown') as HTMLElement;
+              if (dropdown) {
+                dropdown.style.display = 'none';
+                dropdown.style.opacity = '0';
+                dropdown.style.transform = 'translateY(-10px)';
+              }
             }}
           >
-            Resume →
-          </Link>
+            <button
+              style={{
+                color: '#333',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                padding: '12px 24px',
+                border: '2px solid #333',
+                borderRadius: '6px',
+                transition: 'all 0.3s ease',
+                background: 'transparent',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+              onMouseEnter={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.background = '#333';
+                target.style.color = 'white';
+              }}
+              onMouseLeave={(e) => {
+                const target = e.target as HTMLElement;
+                target.style.background = 'transparent';
+                target.style.color = '#333';
+              }}
+            >
+              Resume →<span style={{ fontSize: '12px' }}>▼</span>
+            </button>
+
+            <div
+              className="resume-dropdown"
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '0',
+                right: '0',
+                background: 'white',
+                border: '2px solid #333',
+                borderRadius: '6px',
+                marginTop: '4px',
+                display: 'none',
+                opacity: '0',
+                transform: 'translateY(-10px)',
+                transition: 'all 0.3s ease',
+                zIndex: 1000,
+                boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
+              }}
+            >
+              <Link
+                href="/resume"
+                style={{
+                  display: 'block',
+                  padding: '12px 16px',
+                  color: '#333',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  borderBottom: '1px solid #eee',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  const target = e.target as HTMLElement;
+                  target.style.background = '#f5f5f5';
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.target as HTMLElement;
+                  target.style.background = 'white';
+                }}
+              >
+                📄 View Resume
+              </Link>
+              <a
+                href="/resume.pdf"
+                download="Ronith_Reddy_Resume.pdf"
+                style={{
+                  display: 'block',
+                  padding: '12px 16px',
+                  color: '#333',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  const target = e.target as HTMLElement;
+                  target.style.background = '#f5f5f5';
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.target as HTMLElement;
+                  target.style.background = 'white';
+                }}
+              >
+                💾 Download PDF
+              </a>
+            </div>
+          </div>
         </div>
       </article>
     </PageWrapper>
