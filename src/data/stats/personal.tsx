@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
+import dayjs from 'dayjs';
+
 import { StatData } from '../../components/Stats/types';
 
 const Age: React.FC = () => {
@@ -25,6 +27,26 @@ const Age: React.FC = () => {
   return <>{age}</>;
 };
 
+const DaysSinceTrip: React.FC = () => {
+  const [days, setDays] = useState<number>(0);
+
+  const updateDays = () => {
+    const lastTrip = dayjs('2025-07-03');
+    const today = dayjs();
+    setDays(today.diff(lastTrip, 'day'));
+  };
+
+  useEffect(() => {
+    updateDays(); // Initial calculation
+    const timer = setInterval(updateDays, 1000 * 60 * 60); // Update every hour
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return <>{days} days (and counting!)</>;
+};
+
 const data: StatData[] = [
   {
     key: 'age',
@@ -39,17 +61,32 @@ const data: StatData[] = [
   {
     key: 'location',
     label: 'Current city',
-    value: 'Dallas, TX',
+    value: 'Santa Clara, CA',
   },
   {
     key: 'data_processed',
     label: 'Data processed daily',
-    value: '15TB+',
+    value: '15TB+ (enough to store every cat meme ever made… probably 🐱)',
   },
   {
     key: 'fraud_reduction',
     label: 'Fraud detection improvement',
-    value: '30%',
+    value: '30% (scammers now hate me 😎)',
+  },
+  {
+    key: 'ml_models',
+    label: 'Machine learning models trained',
+    value: 'Countless — and they still ask for more data',
+  },
+  {
+    key: 'dashboards',
+    label: 'Dashboards built',
+    value: 'Enough to make stakeholders actually smile at meetings',
+  },
+  {
+    key: 'days_since_trip',
+    label: 'Days since my last trip',
+    value: <DaysSinceTrip />,
   },
 ];
 

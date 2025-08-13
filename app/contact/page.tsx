@@ -10,7 +10,7 @@ import PageWrapper from '../components/PageWrapper';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: "Contact Ronith Reddy via email @ ronith0306@gmail.com",
+  description: 'Contact Ronith Reddy via email @ ronith0306@gmail.com',
 };
 
 export default function ContactPage() {

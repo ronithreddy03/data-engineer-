@@ -36,13 +36,16 @@ const SideBar: React.FC = () => {
       <section className="blurb">
         <h2>About</h2>
         <p>
-          I am a Data Scientist, ML Engineer, and Data Engineer with 3+ years of experience building
-          ML models and scalable data pipelines. I focus on turning messy data into reliable,
-          production-ready insights.
+          Hi, I&apos;m Ronith — part data whisperer, part problem solver, and part
+          &quot;how-does-this-even-work?&quot; enthusiast.
         </p>
         <p>
-          I work across Python, PySpark, SQL, Apache Spark, and AWS to ship real-time analytics and
-          ML services. Currently based in Dallas, TX and open to opportunities in TX/CA or remote.
+          As a data engineer, I love designing pipelines that flow smoother than my favorite EDM
+          drops, turning raw data into insights that actually drive action.
+        </p>
+        <p>
+          When I&apos;m not wrangling datasets, you&apos;ll probably find me chasing sunsets by the
+          lake or losing myself in the energy of an EDM concert.
         </p>
         <ul className="actions">
           <li>
