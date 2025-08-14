@@ -141,28 +141,28 @@ export default function ResumePage() {
                 display: 'inline-block',
                 cursor: 'pointer',
                 outline: 'none',
-                border: '2px solid #059669',
+                border: '2px solid #000000',
                 borderRadius: '12px',
                 background: 'transparent',
-                color: '#064e3b',
+                color: '#000000',
                 fontSize: '0.9rem',
                 fontWeight: '600',
                 textTransform: 'uppercase',
                 padding: '8px 16px',
                 transition: 'all 0.3s ease',
                 transform: 'translateY(0)',
-                boxShadow: '0 6px 0 0 #047857',
+                boxShadow: '0 6px 0 0 #1a1a1a',
                 zIndex: 1,
               }}
               onMouseEnter={(e) => {
                 const target = e.target as HTMLButtonElement;
                 target.style.transform = 'translateY(3px)';
-                target.style.boxShadow = '0 4px 12px rgba(5, 150, 105, 0.3)';
+                target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3)';
               }}
               onMouseLeave={(e) => {
                 const target = e.target as HTMLButtonElement;
                 target.style.transform = 'translateY(0)';
-                target.style.boxShadow = '0 6px 0 0 #047857';
+                target.style.boxShadow = '0 6px 0 0 #1a1a1a';
               }}
             >
               {section.name}
@@ -176,7 +176,7 @@ export default function ResumePage() {
         className="education"
         style={{
           padding: '20px 0',
-          borderLeft: activeSection === 'education' ? '4px solid #059669' : '4px solid transparent',
+          borderLeft: activeSection === 'education' ? '4px solid #000000' : '4px solid transparent',
           paddingLeft: '20px',
           transition: 'all 0.3s ease',
           borderRadius: '8px',
@@ -193,7 +193,7 @@ export default function ResumePage() {
         style={{
           padding: '20px 0',
           borderLeft:
-            activeSection === 'experience' ? '4px solid #059669' : '4px solid transparent',
+            activeSection === 'experience' ? '4px solid #000000' : '4px solid transparent',
           paddingLeft: '20px',
           transition: 'all 0.3s ease',
           borderRadius: '8px',
@@ -209,7 +209,7 @@ export default function ResumePage() {
         className="skills"
         style={{
           padding: '20px 0',
-          borderLeft: activeSection === 'skills' ? '4px solid #059669' : '4px solid transparent',
+          borderLeft: activeSection === 'skills' ? '4px solid #000000' : '4px solid transparent',
           paddingLeft: '20px',
           transition: 'all 0.3s ease',
           borderRadius: '8px',

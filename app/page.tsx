@@ -75,25 +75,81 @@ export default function HomePage() {
 
   return (
     <PageWrapper>
-      <style jsx>{`
-        /* Elegant Green Theme Colors */
-        :root {
-          --primary-color: #059669;
-          --primary-dark: #047857;
-          --text-primary: #064e3b;
-          --text-secondary: #065f46;
-          --text-light: #6b7280;
-          --background-light: rgba(5, 150, 105, 0.05);
-          --border-color: rgba(5, 150, 105, 0.1);
-          --hover-color: rgba(5, 150, 105, 0.1);
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: `
+          radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+          linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.01) 50%, transparent 52%),
+          linear-gradient(-45deg, transparent 48%, rgba(0, 0, 0, 0.01) 50%, transparent 52%)
+        `,
+          backgroundSize: '100% 100%, 100% 100%, 60px 60px, 60px 60px',
+          backgroundPosition: '0 0, 0 0, 0 0, 0 0',
+          animation: 'subtleFloat 20s ease-in-out infinite',
+          zIndex: -1,
+          pointerEvents: 'none',
+        }}
+      />
 
-          /* 3D Button Colors - Green Theme */
-          --backgroundColor: rgba(240, 253, 244);
-          --colorShadeA: rgb(5, 150, 105);
-          --colorShadeB: rgb(4, 120, 87);
-          --colorShadeC: rgb(16, 185, 129);
-          --colorShadeD: rgb(132, 204, 22);
-          --colorShadeE: rgb(240, 253, 244);
+      {/* Data visualization inspired background elements */}
+      <div
+        style={{
+          position: 'fixed',
+          top: '10%',
+          right: '5%',
+          width: '200px',
+          height: '200px',
+          opacity: 0.02,
+          background: `
+          conic-gradient(from 0deg, transparent 0deg, rgba(0, 0, 0, 0.1) 90deg, transparent 180deg, rgba(0, 0, 0, 0.1) 270deg, transparent 360deg)
+        `,
+          borderRadius: '50%',
+          zIndex: -1,
+          pointerEvents: 'none',
+          animation: 'rotate 30s linear infinite',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'fixed',
+          bottom: '15%',
+          left: '8%',
+          width: '150px',
+          height: '150px',
+          opacity: 0.015,
+          background: `
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px)
+        `,
+          zIndex: -1,
+          pointerEvents: 'none',
+          animation: 'pulse 8s ease-in-out infinite',
+        }}
+      />
+      <style jsx>{`
+        /* Sleek Black Theme Colors */
+        :root {
+          --primary-color: #000000;
+          --primary-dark: #1a1a1a;
+          --text-primary: #000000;
+          --text-secondary: #333333;
+          --text-light: #666666;
+          --background-light: rgba(0, 0, 0, 0.05);
+          --border-color: rgba(0, 0, 0, 0.1);
+          --hover-color: rgba(0, 0, 0, 0.1);
+
+          /* 3D Button Colors - Black Theme */
+          --backgroundColor: rgba(250, 250, 250);
+          --colorShadeA: rgb(0, 0, 0);
+          --colorShadeB: rgb(26, 26, 26);
+          --colorShadeC: rgb(51, 51, 51);
+          --colorShadeD: rgb(102, 102, 102);
+          --colorShadeE: rgb(250, 250, 250);
         }
 
         @keyframes blink {
@@ -127,6 +183,43 @@ export default function HomePage() {
           }
           100% {
             background-position: 0% 50%;
+          }
+        }
+
+        @keyframes subtleFloat {
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-10px) rotate(0.5deg);
+          }
+          50% {
+            transform: translateY(-5px) rotate(-0.5deg);
+          }
+          75% {
+            transform: translateY(-15px) rotate(0.3deg);
+          }
+        }
+
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 0.015;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.025;
+            transform: scale(1.05);
           }
         }
 
