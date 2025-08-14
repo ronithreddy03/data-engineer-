@@ -19,18 +19,13 @@ const SideBar: React.FC = () => {
           <Image
             src="/images/me.jpg"
             alt="Ronith Reddy Prodduturi"
-            width={400}
-            height={400}
+            width={500}
+            height={650}
             priority
             quality={100}
             style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
         </Link>
-        <header>
-          <p>
-            <a href="mailto:ronith0306@gmail.com">ronith0306@gmail.com</a>
-          </p>
-        </header>
       </section>
 
       <section className="blurb">

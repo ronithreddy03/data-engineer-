@@ -8,9 +8,9 @@ export interface Degree {
 const degrees: Degree[] = [
   {
     school: 'Lindsey Wilson University',
-    degree: 'Master of Science in Technology Management (In Progress)',
+    degree: 'Master of Science in Technology Management',
     link: 'https://www.lindsey.edu',
-    year: 2025,
+    year: 2024,
   },
   {
     school: 'GITAM University',

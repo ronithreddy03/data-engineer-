@@ -4,6 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import EmailLink from '@/components/Contact/EmailLink';
 
 import PageWrapper from './components/PageWrapper';
@@ -18,6 +23,7 @@ const roles = [
 export default function HomePage() {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
+  const [introText, setIntroText] = useState('');
 
   useEffect(() => {
     let currentIndex = 0;
@@ -33,7 +39,7 @@ export default function HomePage() {
           setTimeout(() => {
             isDeleting = true;
             currentIndex = currentRoleText.length;
-          }, 1500);
+          }, 500);
         }
       } else {
         if (currentIndex >= 0) {
@@ -45,18 +51,55 @@ export default function HomePage() {
           currentIndex = 0;
         }
       }
-    }, 150);
+    }, 50);
 
     return () => clearInterval(typeInterval);
   }, [currentRole]);
 
+  // Intro text typing effect
+  useEffect(() => {
+    const intro = 'Hi, my name is';
+    let currentIndex = 0;
+
+    const introInterval = setInterval(() => {
+      if (currentIndex <= intro.length) {
+        setIntroText(intro.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(introInterval);
+      }
+    }, 100);
+
+    return () => clearInterval(introInterval);
+  }, []);
+
   return (
     <PageWrapper>
       <style jsx>{`
+        /* Unified Theme Colors */
+        :root {
+          --primary-color: #2563eb;
+          --primary-dark: #1e40af;
+          --text-primary: #1f2937;
+          --text-secondary: #6b7280;
+          --text-light: #9ca3af;
+          --background-light: rgba(37, 99, 235, 0.05);
+          --border-color: rgba(37, 99, 235, 0.1);
+          --hover-color: rgba(37, 99, 235, 0.1);
+
+          /* 3D Button Colors */
+          --backgroundColor: rgba(246, 241, 209);
+          --colorShadeA: rgb(106, 163, 137);
+          --colorShadeB: rgb(121, 186, 156);
+          --colorShadeC: rgb(150, 232, 195);
+          --colorShadeD: rgb(187, 232, 211);
+          --colorShadeE: rgb(205, 255, 232);
+        }
+
         @keyframes blink {
           0%,
           50% {
-            border-color: #2563eb;
+            border-color: var(--primary-color);
           }
           51%,
           100% {
@@ -100,21 +143,17 @@ export default function HomePage() {
         @keyframes glow {
           0%,
           100% {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
           }
           50% {
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
           }
         }
 
         .hero-container {
-          background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-          background-size: 400% 400%;
-          animation: gradientShift 8s ease infinite;
-          border-radius: 20px;
+          background: transparent;
           padding: 40px;
           margin-bottom: 40px;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .name-title {
@@ -140,6 +179,247 @@ export default function HomePage() {
         .glow-effect {
           animation: glow 2s ease-in-out infinite;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+          .hero-container {
+            padding: 20px !important;
+            margin-bottom: 20px !important;
+          }
+
+          .name-title {
+            font-size: 2rem !important;
+            line-height: 1.1 !important;
+            margin-bottom: 15px !important;
+          }
+
+          .role-container {
+            font-size: 1.4rem !important;
+            min-height: 2rem !important;
+            padding: 10px 15px !important;
+            gap: 8px !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+          }
+
+          .emoji-float {
+            font-size: 1.2rem !important;
+          }
+
+          .location-text {
+            font-size: 1.1rem !important;
+            margin-bottom: 20px !important;
+          }
+
+          .tagline-text {
+            font-size: 1.2rem !important;
+            margin-bottom: 25px !important;
+            max-width: 100% !important;
+          }
+
+          .contact-buttons {
+            flex-direction: column !important;
+            gap: 12px !important;
+            align-items: center !important;
+          }
+
+          .contact-button {
+            width: 100% !important;
+            max-width: 280px !important;
+            justify-content: center !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .name-title {
+            font-size: 1.8rem !important;
+          }
+
+          .role-container {
+            font-size: 1.2rem !important;
+            padding: 8px 12px !important;
+          }
+
+          .emoji-float {
+            font-size: 1rem !important;
+          }
+
+          .location-text {
+            font-size: 1rem !important;
+          }
+
+          .tagline-text {
+            font-size: 1.1rem !important;
+          }
+        }
+
+        /* 3D Button Styles */
+        .big-button {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          outline: none;
+          border: 0;
+          vertical-align: middle;
+          text-decoration: none;
+          font-size: 1.1rem;
+          color: rgb(106, 163, 137);
+          font-weight: 700;
+          text-transform: uppercase;
+          font-family: inherit;
+          padding: 1em 2em;
+          border: 2px solid rgb(106, 163, 137);
+          border-radius: 1em;
+          background: rgb(205, 255, 232);
+          transform-style: preserve-3d;
+          transition: all 175ms cubic-bezier(0, 0, 1, 1);
+          z-index: 1;
+        }
+
+        .big-button::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgb(150, 232, 195);
+          border-radius: inherit;
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.75em 0 0 rgb(106, 163, 137);
+          transform: translate3d(0, 0.75em, -1em);
+          transition: all 175ms cubic-bezier(0, 0, 1, 1);
+          z-index: -1;
+        }
+
+        .big-button:hover {
+          background: rgb(187, 232, 211);
+          transform: translate(0, 0.375em);
+        }
+
+        .big-button:hover::before {
+          transform: translate3d(0, 0.75em, -1em);
+        }
+
+        .big-button:active {
+          transform: translate(0em, 0.75em);
+        }
+
+        .big-button:active::before {
+          transform: translate3d(0, 0, -1em);
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.25em 0 0 rgb(121, 186, 156);
+        }
+
+        /* Navigation 3D Button Styles */
+        .nav-button-3d {
+          position: relative;
+        }
+
+        .nav-button-3d::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgb(150, 232, 195);
+          border-radius: inherit;
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.5em 0 0 rgb(106, 163, 137);
+          transform: translate3d(0, 0.5em, -1em);
+          transition: all 175ms cubic-bezier(0, 0, 1, 1);
+          z-index: -1;
+        }
+
+        .nav-button-3d:hover {
+          background: rgb(187, 232, 211);
+          transform: translate(0, 0.25em);
+        }
+
+        .nav-button-3d:active {
+          transform: translate(0em, 0.5em);
+        }
+
+        .nav-button-3d:active::before {
+          transform: translate3d(0, 0, -1em);
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.25em 0 0 rgb(121, 186, 156);
+        }
+
+        /* Contact Icons Styling */
+        .contact-icons-intro {
+          display: flex;
+          justify-content: center;
+          gap: 0;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        .contact-icons-intro a {
+          position: relative;
+          background: rgb(205, 255, 232) !important;
+          border: 2px solid rgb(106, 163, 137) !important;
+          color: rgb(106, 163, 137) !important;
+          transform-style: preserve-3d;
+          transition: all 175ms cubic-bezier(0, 0, 1, 1);
+          z-index: 1;
+        }
+
+        .contact-icons-intro a::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgb(150, 232, 195);
+          border-radius: inherit;
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.5em 0 0 rgb(106, 163, 137);
+          transform: translate3d(0, 0.5em, -1em);
+          transition: all 175ms cubic-bezier(0, 0, 1, 1);
+          z-index: -1;
+        }
+
+        .contact-icons-intro a:hover {
+          background: rgb(187, 232, 211) !important;
+          transform: translate(0, 0.25em) !important;
+        }
+
+        .contact-icons-intro a:active {
+          transform: translate(0em, 0.5em) !important;
+        }
+
+        .contact-icons-intro a:active::before {
+          transform: translate3d(0, 0, -1em) !important;
+          box-shadow:
+            0 0 0 2px rgb(121, 186, 156),
+            0 0.25em 0 0 rgb(121, 186, 156) !important;
+        }
+
+        @media (max-width: 768px) {
+          .contact-icons-intro {
+            gap: 0;
+          }
+
+          .contact-icons-intro a {
+            width: 56px !important;
+            height: 56px !important;
+            font-size: 1.4rem !important;
+          }
+        }
       `}</style>
       <article className="post" id="index">
         <div
@@ -148,6 +428,8 @@ export default function HomePage() {
             margin: '0 auto',
             padding: '20px',
             textAlign: 'center',
+            width: '100%',
+            boxSizing: 'border-box',
           }}
         >
           <div className="hero-container">
@@ -159,47 +441,70 @@ export default function HomePage() {
                 alignItems: 'center',
               }}
             >
+              <p
+                className="intro-text"
+                style={{
+                  fontSize: '1.4rem',
+                  color: 'var(--text-secondary)',
+                  marginBottom: '10px',
+                  fontWeight: '500',
+                  fontStyle: 'italic',
+                }}
+              >
+                {introText}
+              </p>
+
               <h1
                 className="name-title"
                 style={{
-                  fontSize: '3.8rem',
-                  fontWeight: '800',
+                  fontSize: '2.5rem',
+                  fontWeight: '700',
                   marginBottom: '20px',
-                  color: '#ffffff',
-                  lineHeight: '1.1',
-                  letterSpacing: '-1px',
-                  textShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+                  color: 'var(--text-primary)',
+                  lineHeight: '1.2',
+                  letterSpacing: '-0.5px',
                 }}
               >
                 Ronith Reddy Prodduturi
               </h1>
 
+              <p
+                className="iam-text"
+                style={{
+                  fontSize: '1.2rem',
+                  color: 'var(--text-secondary)',
+                  marginBottom: '8px',
+                  fontWeight: '500',
+                }}
+              >
+                I am a
+              </p>
+
               <h2
                 className="role-container glow-effect"
                 style={{
-                  fontSize: '2.6rem',
-                  fontWeight: '700',
+                  fontSize: '1.8rem',
+                  fontWeight: '600',
                   marginBottom: '16px',
-                  color: '#ffffff',
-                  letterSpacing: '-0.5px',
-                  minHeight: '3.5rem',
+                  color: 'var(--text-primary)',
+                  letterSpacing: '-0.3px',
+                  minHeight: '2.5rem',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '16px',
-                  padding: '16px 24px',
-                  borderRadius: '15px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  gap: '12px',
+                  padding: '12px 20px',
+                  borderRadius: '10px',
+                  background: 'var(--background-light)',
+                  border: '1px solid var(--border-color)',
                 }}
               >
-                <span className="emoji-float" style={{ fontSize: '2.4rem' }}>
+                <span className="emoji-float" style={{ fontSize: '1.6rem' }}>
                   {roles[currentRole].emoji}
                 </span>
                 <span
                   style={{
-                    borderRight: '3px solid #ffffff',
+                    borderRight: '2px solid var(--primary-color)',
                     animation: 'blink 1s infinite',
                   }}
                 >
@@ -211,10 +516,9 @@ export default function HomePage() {
                 className="location-text"
                 style={{
                   fontSize: '1.3rem',
-                  color: '#e2e8f0',
+                  color: 'var(--text-secondary)',
                   marginBottom: '28px',
                   fontWeight: '600',
-                  textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                 }}
               >
                 🌍 Santa Clara, CA • Open to Remote
@@ -224,19 +528,19 @@ export default function HomePage() {
                 className="tagline-text"
                 style={{
                   fontSize: '1.4rem',
-                  color: '#f1f5f9',
+                  color: 'var(--text-primary)',
                   marginBottom: '36px',
                   fontWeight: '500',
                   lineHeight: '1.6',
                   fontStyle: 'italic',
-                  textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                   maxWidth: '600px',
                 }}
               >
-                ✨ &quot;Transforming complex data into actionable insights.&quot;
+                ✨ &quot;Making data work harder, so you don&apos;t have to.&quot;
               </p>
 
               <div
+                className="contact-buttons"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -246,7 +550,7 @@ export default function HomePage() {
               >
                 <div
                   style={{
-                    color: '#ffffff',
+                    color: 'var(--text-primary)',
                     textDecoration: 'none',
                     fontSize: '1.1rem',
                     fontWeight: '500',
@@ -255,19 +559,18 @@ export default function HomePage() {
                     gap: '8px',
                     padding: '12px 20px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'var(--background-light)',
+                    border: '1px solid var(--border-color)',
                     transition: 'all 0.3s ease',
                   }}
                   onMouseEnter={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.background = 'rgba(255, 255, 255, 0.2)';
+                    target.style.background = 'var(--hover-color)';
                     target.style.transform = 'translateY(-2px)';
                   }}
                   onMouseLeave={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.background = 'rgba(255, 255, 255, 0.1)';
+                    target.style.background = 'var(--background-light)';
                     target.style.transform = 'translateY(0)';
                   }}
                 >
@@ -276,13 +579,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '20px',
-                  marginBottom: '32px',
-                }}
-              >
+              {/* Contact Icons */}
+              <div className="contact-icons-intro">
                 <a
                   href="https://www.linkedin.com/in/ronithreddy03/"
                   target="_blank"
@@ -291,32 +589,30 @@ export default function HomePage() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '56px',
-                    height: '56px',
+                    width: '64px',
+                    height: '64px',
                     borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.15)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    color: 'white',
+                    background: 'var(--background-light)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                     textDecoration: 'none',
-                    fontSize: '1.8rem',
+                    fontSize: '1.6rem',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
                   }}
                   onMouseEnter={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.transform = 'translateY(-4px) scale(1.05)';
-                    target.style.boxShadow = '0 12px 35px rgba(0,0,0,0.3)';
-                    target.style.background = 'rgba(255, 255, 255, 0.25)';
+                    target.style.background = 'var(--hover-color)';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.1)';
                   }}
                   onMouseLeave={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.transform = 'translateY(0) scale(1)';
-                    target.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
-                    target.style.background = 'rgba(255, 255, 255, 0.15)';
+                    target.style.background = 'var(--background-light)';
+                    target.style.transform = 'translateY(0)';
+                    target.style.boxShadow = 'none';
                   }}
                 >
-                  💼
+                  <FontAwesomeIcon icon={faLinkedinIn} />
                 </a>
 
                 <a
@@ -327,32 +623,96 @@ export default function HomePage() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '56px',
-                    height: '56px',
+                    width: '64px',
+                    height: '64px',
                     borderRadius: '16px',
-                    background: 'rgba(255, 255, 255, 0.15)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    color: 'white',
+                    background: 'var(--background-light)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                     textDecoration: 'none',
-                    fontSize: '1.8rem',
+                    fontSize: '1.6rem',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
                   }}
                   onMouseEnter={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.transform = 'translateY(-4px) scale(1.05)';
-                    target.style.boxShadow = '0 12px 35px rgba(0,0,0,0.3)';
-                    target.style.background = 'rgba(255, 255, 255, 0.25)';
+                    target.style.background = 'var(--hover-color)';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.1)';
                   }}
                   onMouseLeave={(e) => {
                     const target = e.target as HTMLElement;
-                    target.style.transform = 'translateY(0) scale(1)';
-                    target.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
-                    target.style.background = 'rgba(255, 255, 255, 0.15)';
+                    target.style.background = 'var(--background-light)';
+                    target.style.transform = 'translateY(0)';
+                    target.style.boxShadow = 'none';
                   }}
                 >
-                  🐙
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+
+                <a
+                  href="https://ronithreddy.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '16px',
+                    background: 'var(--background-light)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
+                    textDecoration: 'none',
+                    fontSize: '1.6rem',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.background = 'var(--hover-color)';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.background = 'var(--background-light)';
+                    target.style.transform = 'translateY(0)';
+                    target.style.boxShadow = 'none';
+                  }}
+                >
+                  🌐
+                </a>
+
+                <a
+                  href="mailto:ronith0306@gmail.com"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '16px',
+                    background: 'var(--background-light)',
+                    border: '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
+                    textDecoration: 'none',
+                    fontSize: '1.6rem',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.background = 'var(--hover-color)';
+                    target.style.transform = 'translateY(-2px)';
+                    target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.background = 'var(--background-light)';
+                    target.style.transform = 'translateY(0)';
+                    target.style.boxShadow = 'none';
+                  }}
+                >
+                  <FontAwesomeIcon icon={faEnvelope} />
                 </a>
               </div>
             </div>
@@ -362,24 +722,9 @@ export default function HomePage() {
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link
             href="/contact"
+            className="big-button"
             style={{
-              color: '#2563eb',
               textDecoration: 'none',
-              fontWeight: 'bold',
-              padding: '12px 24px',
-              border: '2px solid #2563eb',
-              borderRadius: '6px',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = '#2563eb';
-              target.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = 'transparent';
-              target.style.color = '#2563eb';
             }}
           >
             Hire Me →
@@ -387,24 +732,9 @@ export default function HomePage() {
 
           <Link
             href="/contact"
+            className="big-button"
             style={{
-              color: '#000000',
               textDecoration: 'none',
-              fontWeight: 'bold',
-              padding: '12px 24px',
-              border: '2px solid #000000',
-              borderRadius: '6px',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = '#000000';
-              target.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              const target = e.target as HTMLElement;
-              target.style.background = 'transparent';
-              target.style.color = '#000000';
             }}
           >
             Contact Me →

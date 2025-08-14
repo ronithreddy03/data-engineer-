@@ -66,7 +66,7 @@ const data: StatData[] = [
   {
     key: 'data_processed',
     label: 'Data processed daily',
-    value: '15TB+ (enough to store every cat meme ever made… probably 🐱)',
+    value: '15TB+ (enough to fill thousands of databases)',
   },
   {
     key: 'fraud_reduction',

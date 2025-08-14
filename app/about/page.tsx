@@ -55,7 +55,7 @@ const timelineData = [
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <article className="post markdown" id="about">
+      <article className="post" id="about">
         <header>
           <div className="title">
             <h2>
@@ -66,7 +66,9 @@ export default function AboutPage() {
         </header>
 
         {/* Render markdown content */}
-        <Markdown>{aboutMarkdown}</Markdown>
+        <div className="content">
+          <Markdown>{aboutMarkdown}</Markdown>
+        </div>
 
         {/* Render timeline for experience section */}
         <div style={{ marginTop: '40px' }}>
