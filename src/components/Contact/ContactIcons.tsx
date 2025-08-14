@@ -66,7 +66,7 @@ const ContactIcons: React.FC = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(51, 51, 51, 0.98)',
+            background: 'rgba(5, 150, 105, 0.98)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',

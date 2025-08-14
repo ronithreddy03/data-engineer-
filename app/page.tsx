@@ -76,24 +76,24 @@ export default function HomePage() {
   return (
     <PageWrapper>
       <style jsx>{`
-        /* Unified Theme Colors */
+        /* Elegant Green Theme Colors */
         :root {
-          --primary-color: #2563eb;
-          --primary-dark: #1e40af;
-          --text-primary: #1f2937;
-          --text-secondary: #6b7280;
-          --text-light: #9ca3af;
-          --background-light: rgba(37, 99, 235, 0.05);
-          --border-color: rgba(37, 99, 235, 0.1);
-          --hover-color: rgba(37, 99, 235, 0.1);
+          --primary-color: #059669;
+          --primary-dark: #047857;
+          --text-primary: #064e3b;
+          --text-secondary: #065f46;
+          --text-light: #6b7280;
+          --background-light: rgba(5, 150, 105, 0.05);
+          --border-color: rgba(5, 150, 105, 0.1);
+          --hover-color: rgba(5, 150, 105, 0.1);
 
-          /* 3D Button Colors */
-          --backgroundColor: rgba(246, 241, 209);
-          --colorShadeA: rgb(106, 163, 137);
-          --colorShadeB: rgb(121, 186, 156);
-          --colorShadeC: rgb(150, 232, 195);
-          --colorShadeD: rgb(187, 232, 211);
-          --colorShadeE: rgb(205, 255, 232);
+          /* 3D Button Colors - Green Theme */
+          --backgroundColor: rgba(240, 253, 244);
+          --colorShadeA: rgb(5, 150, 105);
+          --colorShadeB: rgb(4, 120, 87);
+          --colorShadeC: rgb(16, 185, 129);
+          --colorShadeD: rgb(132, 204, 22);
+          --colorShadeE: rgb(240, 253, 244);
         }
 
         @keyframes blink {

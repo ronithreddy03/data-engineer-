@@ -32,25 +32,25 @@ const Navigation: React.FC = () => (
                   padding: '8px 16px',
                   borderRadius: '12px',
                   textDecoration: 'none',
-                  color: '#333333',
+                  color: '#064e3b',
                   fontWeight: '600',
                   textTransform: 'uppercase',
-                  border: '2px solid #333333',
+                  border: '2px solid #059669',
                   background: 'transparent',
                   transition: 'all 0.3s ease',
                   position: 'relative',
-                  boxShadow: '0 6px 0 0 #1a1a1a',
+                  boxShadow: '0 6px 0 0 #047857',
                   zIndex: 1,
                 }}
                 onMouseEnter={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.transform = 'translateY(3px)';
-                  target.style.boxShadow = '0 4px 12px rgba(51, 51, 51, 0.3)';
+                  target.style.boxShadow = '0 4px 12px rgba(5, 150, 105, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   const target = e.target as HTMLElement;
                   target.style.transform = 'translateY(0)';
-                  target.style.boxShadow = '0 6px 0 0 #1a1a1a';
+                  target.style.boxShadow = '0 6px 0 0 #047857';
                 }}
               >
                 {l.label}
