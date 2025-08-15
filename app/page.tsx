@@ -175,6 +175,27 @@ export default function HomePage() {
           --colorShadeE: rgb(250, 250, 250);
         }
 
+        /* Beautiful gradient background */
+        body {
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          background-attachment: fixed;
+          min-height: 100vh;
+        }
+
+        /* Alternative: Dark tech gradient */
+        /* body {
+          background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+          background-attachment: fixed;
+          min-height: 100vh;
+        } */
+
+        /* Alternative: Warm professional gradient */
+        /* body {
+          background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+          background-attachment: fixed;
+          min-height: 100vh;
+        } */
+
         @keyframes blink {
           0%,
           50% {
