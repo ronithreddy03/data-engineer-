@@ -75,7 +75,7 @@ export default function HomePage() {
 
   return (
     <PageWrapper>
-      {/* Main background with subtle pattern */}
+      {/* Main background with visible pattern */}
       <div
         style={{
           position: 'fixed',
@@ -84,11 +84,11 @@ export default function HomePage() {
           width: '100%',
           height: '100%',
           background: `
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.02)" stroke-width="0.5"/></pattern></defs><rect width="60" height="60" fill="url(%23grid)"/></svg>'),
-            radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
-            linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.01) 50%, transparent 52%),
-            linear-gradient(-45deg, transparent 48%, rgba(0, 0, 0, 0.01) 50%, transparent 52%)
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/></pattern></defs><rect width="60" height="60" fill="url(%23grid)"/></svg>'),
+            radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.04) 0%, transparent 50%),
+            linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.03) 50%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, rgba(0, 0, 0, 0.03) 50%, transparent 52%)
           `,
           backgroundSize: '60px 60px, 100% 100%, 100% 100%, 60px 60px, 60px 60px',
           backgroundPosition: '0 0, 0 0, 0 0, 0 0, 0 0',
@@ -106,10 +106,10 @@ export default function HomePage() {
           right: '5%',
           width: '200px',
           height: '200px',
-          opacity: 0.02,
+          opacity: 0.08,
           background: `
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" stroke-dasharray="5,5"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-dasharray="3,3"/><circle cx="100" cy="100" r="40" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1" stroke-dasharray="2,2"/></svg>'),
-            conic-gradient(from 0deg, transparent 0deg, rgba(0, 0, 0, 0.1) 90deg, transparent 180deg, rgba(0, 0, 0, 0.1) 270deg, transparent 360deg)
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2" stroke-dasharray="5,5"/><circle cx="100" cy="100" r="60" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="2" stroke-dasharray="3,3"/><circle cx="100" cy="100" r="40" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="2" stroke-dasharray="2,2"/></svg>'),
+            conic-gradient(from 0deg, transparent 0deg, rgba(0, 0, 0, 0.15) 90deg, transparent 180deg, rgba(0, 0, 0, 0.15) 270deg, transparent 360deg)
           `,
           borderRadius: '50%',
           zIndex: -1,
@@ -125,10 +125,10 @@ export default function HomePage() {
           left: '8%',
           width: '150px',
           height: '150px',
-          opacity: 0.015,
+          opacity: 0.06,
           background: `
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><rect x="10" y="10" width="130" height="130" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="8,8"/><rect x="25" y="25" width="100" height="100" fill="none" stroke="rgba(0,0,0,0.04)" stroke-width="1" stroke-dasharray="6,6"/><rect x="40" y="40" width="70" height="70" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1" stroke-dasharray="4,4"/></svg>'),
-            repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px)
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><rect x="10" y="10" width="130" height="130" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="2" stroke-dasharray="8,8"/><rect x="25" y="25" width="100" height="100" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="2" stroke-dasharray="6,6"/><rect x="40" y="40" width="70" height="70" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2" stroke-dasharray="4,4"/></svg>'),
+            repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.08) 10px, rgba(0, 0, 0, 0.08) 20px)
           `,
           zIndex: -1,
           pointerEvents: 'none',
@@ -144,9 +144,9 @@ export default function HomePage() {
           left: 0,
           width: '100%',
           height: '100%',
-          opacity: 0.01,
+          opacity: 0.04,
           background: `
-            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(0,0,0,0.1)"/><line x1="0" y1="10" x2="20" y2="10" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/><line x1="10" y1="0" x2="10" y2="20" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>')
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="rgba(0,0,0,0.2)"/><line x1="0" y1="10" x2="20" y2="10" stroke="rgba(0,0,0,0.1)" stroke-width="1"/><line x1="10" y1="0" x2="10" y2="20" stroke="rgba(0,0,0,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>')
           `,
           backgroundSize: '100px 100px',
           zIndex: -1,
